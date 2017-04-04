@@ -1,5 +1,11 @@
 class WishesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
+
+  def index
+    @wishes = Wish.all
+  end
+
+
   def new
     @wish = Wish.new
   end
