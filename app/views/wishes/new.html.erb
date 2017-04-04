@@ -1,0 +1,9 @@
+<br>
+<div class="booyeah-box col-10 offset-1">
+  <h1>Make A Wish</h1>
+  <%= simple_form_for @wish, url: wishes_path do |f| %>
+    <%= f.input :description %>
+    <br>
+    <%= f.submit "Make Wish", class: "btn btn-primary" %>
+  <% end %>
+</div>
