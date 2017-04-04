@@ -6,7 +6,11 @@ class WishesController < ApplicationController
 
   def create
     @wish = current_user.wishes.create(wish_params)
-    redirect_to wish_path(@wish)
+    if @wish.valid?
+      redirect_to wish_path(@wish)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
