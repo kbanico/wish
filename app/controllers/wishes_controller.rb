@@ -20,7 +20,9 @@ class WishesController < ApplicationController
   end
 
   def show
+    @donation = Donation.new
     @wish = Wish.find(params[:id])
+
   end
 
   private

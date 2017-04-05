@@ -1,4 +1,10 @@
 <br />
 <div class="booyah-box col-10 offset-1">
   <h1 class="text-center"><%= @wish.description %></h1>
+  <h3 class="text-center"><%= @wish.coin_bucket %></h3>
+
+  <%= simple_form_for @donation, url: wish_donations_path(@wish) do |f| %>
+    <%= f.input :amount %>
+    <%= f.submit "Donate", class: "btn btn-primary" %>
+  <% end %>
 </div>

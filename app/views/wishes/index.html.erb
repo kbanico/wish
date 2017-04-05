@@ -6,7 +6,7 @@
 
   <% @wishes.each do |wish| %>
     <h2 class="text-center"><%= wish.description%></h2>
-
+    <%= link_to "view", wish_path(wish) %>
     <br>
   <% end %>
 </div>
