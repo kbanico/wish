@@ -8,7 +8,7 @@ class DonationsController < ApplicationController
     @wish.update_attributes(coin_bucket: new_amount)
 
     #update user coins
-    new_user_coins = current_user.coins-params[:amount].to_i
+    new_user_coins = current_user.coins-donation_params[:amount].to_i
     current_user.update_attributes(coins: new_user_coins)
 
     #make the donation for viewing purpose later
