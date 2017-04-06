@@ -2,11 +2,14 @@
 <div class="float-right white"><%= render "/layouts/coins_ui" %></div>
 <br />
 <div class="booyah-box col-10 offset-1">
-  <h1 class="text-center"><%= @wish.description %></h1>
-  <h3 class="text-center"><%= @wish.coin_bucket %> <i class="fa fa-heart-o" style="color:red;" aria-hidden="true"></i></h3>
 
-  <%= simple_form_for @donation, url: wish_donations_path(@wish) do |f| %>
-    <%= f.input :amount, input_html: {value: f.object.amount || '1'} %>
-    <%= f.submit "Donate", class: "btn btn-primary" %>
-  <% end %>
+
+  <div class="form">
+    <h1 class="text-center"><%= @wish.description %></h1>
+    <h3 class="text-center"><%= @wish.coin_bucket %> <i class="fa fa-heart-o" style="color:red;" aria-hidden="true"></i></h3>
+    <%= simple_form_for @donation, url: wish_donations_path(@wish) do |f| %>
+      <%= f.input :amount, input_html: {value: f.object.amount || '1'} %>
+      <%= f.submit "Donate", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
