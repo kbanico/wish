@@ -17,7 +17,8 @@ class DonationsController < ApplicationController
       # current_user.update_attributes(coins: new_user_coins)
       # @wish.update_attributes(coin_bucket: @wish.coin_bucket+new_amount)
 
-      redirect_to wish_path(@wish)
+      # redirect_to wish_path(@wish)
+      redirect_to :back
     else
       # maybe redirect them to a page to request for more coins
       flash[:alert] = "Sorry you don't have enough coins"
