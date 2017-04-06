@@ -1,4 +1,9 @@
 @import "bootstrap";
+@import "font-awesome";
+
+body{
+  background-color: #0c0f09;
+}
 .navbar {
   font-family: "Helvetica Neue", Helvetica;
   font-weight: 200;
@@ -70,5 +75,10 @@ h1,h2,h3,h4,h5,h6, .navbar{
   border-radius: 3px;
   padding: 2px 8px 2px 8px;
   margin: 10px;
+}
+
+.white{
+  color:white;
+  margin-right:20px;
 }
 
