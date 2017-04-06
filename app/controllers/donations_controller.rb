@@ -20,6 +20,8 @@ class DonationsController < ApplicationController
       redirect_to wish_path(@wish)
     else
       # maybe redirect them to a page to request for more coins
+      flash[:alert] = "Sorry you don't have enough coins"
+      redirect_to :back
     end
   end
 
