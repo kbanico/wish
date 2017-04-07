@@ -4,15 +4,15 @@
 <div class="booyah-box2 col-10 offset-1"  id="kcontainer">
 <div id="cloud-container">
   <div class="form">
-    <h1 class="text-center">
+    <h1 class="text-center username">
     <% if @wish.user.username.present? %>
-      <%= @wish.user.username %>'s wish:
+       <span class="form-username my-font"><%= @wish.user.username %>'s Wish:</span>
       <br>
     <% else %>
       WISH
     <% end %>
     </h1>
-    <p class="lead text-center"><%= @wish.description %></p>
+    <p class="lead text-center wish-description"><%= @wish.description %></p>
     <h3 class="text-center">
       <%= @wish.coin_bucket %>
       <% if @wish.coin_bucket == 0 %>
