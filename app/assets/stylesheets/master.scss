@@ -137,8 +137,8 @@ h1,h2,h3,h4,h5,h6, .navbar{
     margin: -16px -16px 16px -16px;
 }
 
-.form input[type="submit"],
-.form input[type="button"],
+.form input[type="submit"]/*,
+.form input[type="button"],*/
 .form .btn{
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -204,6 +204,17 @@ h1,h2,h3,h4,h5,h6, .navbar{
 
 }
 
+.btn-remove{
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.font-awesome-bigger{
+  font-size: 3em;
+}
+
+.heart-text { margin-top: .3em; }
 
 
 
