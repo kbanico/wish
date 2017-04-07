@@ -8,7 +8,7 @@
  <div class="row">
    <% @wishes.each do |wish| %>
   <%= link_to wish_path(wish) do%>
-  <div class="col-12 col-sm-6 wish-link">
+  <div class="col-6 col-sm-6 wish-link">
       <% if false %>
       <h2 class="text-center"><%= wish.description%></h2>
       <div id="coin_bucket-<%=wish.id%>">

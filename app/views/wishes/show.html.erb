@@ -48,14 +48,17 @@
 <script>
   $(document).ready(function(){
 
+var animations = ["flip", "lightSpeedIn","rotateIn","slideInUp"]
+var random = Math.floor(Math.random()*animations.length)
+console.log(animations[random])
 
 $("#random-btn").on("click",function(event) {
     $(this).hide();
     event.preventDefault()
     // do other stuff here
-    $("#kcontainer").addClass("animated flip")
+    $("#kcontainer").addClass("animated "+ animations[random])
       setTimeout(function(){
-        $("#kcontainer").removeClass("animated flip")
+        $("#kcontainer").removeClass("animated " + animations[random])
         window.location = "/wishes/<%=@random.id%>"
         console.log("<%=@random.id%>")
 
