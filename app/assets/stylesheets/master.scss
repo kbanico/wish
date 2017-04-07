@@ -146,6 +146,23 @@ h1,h2,h3,h4,h5,h6, .navbar{
 
 }
 
+
+
+/* The sticky */
+/*.white {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}*/
+
+.fixedElement {
+    position:fixed;
+    right:6px;
+    z-index:100;
+}
+
+
+
 @media (max-width:641px){
   .form{
     max-width:400px;

@@ -1,3 +1,3 @@
 <% if user_signed_in? %>
-  <%= current_user.coins %> <i class="fa fa-diamond" aria-hidden="true"></i>
+  <span id="user-coins-<%=current_user.id%>"><%= current_user.coins %> </span> <i class="fa fa-diamond" aria-hidden="true"></i>
 <% end %>
