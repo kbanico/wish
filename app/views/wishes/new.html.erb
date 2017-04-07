@@ -1,11 +1,11 @@
 <br>
 <div class="float-right white"><%= render "/layouts/coins_ui" %></div>
 <br>
-<div class="booyah-box col-10 offset-1">
+<div class="booyah-box col-10 offset-1 col-sm-6 offset-sm-3">
   <h1>Make A Wish</h1>
   <%= simple_form_for @wish, url: wishes_path do |f| %>
-    <%= f.input :description, placeholder: "Add Your Wish" %>
+    <%= f.input :description, placeholder: "I Wish For World Peach", label: false %>
     <br>
-    <%= f.submit "Make Wish", class: "btn btn-primary" %>
+    <%= f.submit "Make Wish", class: "btn btn-primary btn-green" %>
   <% end %>
 </div>
