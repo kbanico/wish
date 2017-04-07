@@ -41,29 +41,35 @@
 
 <script>
   $(document).ready(function(){
-     $(".btn-remove").click(function(){
-        $("#heart-animation").animate({
-          fontSize: "300px",
-          opacity: "1"
-        });
-
-    });
-
-    $('.heart-form').submit(function (e) {
-    var form = this;
-    e.preventDefault();
-    setTimeout(function () {
-        form.submit();
-    }, 300); // in milliseconds
-});
 
 
 
-var audio = $("#mysoundclip")[0];
-        console.log(audio);
-        $(".btn-remove").click(function() {
-            audio.play();
-        });
+
+
+if(<%= current_user.coins%> >0){
+
+  $(".btn-remove").click(function(){
+      $("#heart-animation").animate({
+        fontSize: "300px",
+        opacity: "1"
+      });
+   });
+
+  var audio = $("#mysoundclip")[0];
+    console.log(audio);
+    $(".btn-remove").click(function() {
+        audio.play();
+  });
+
+  $('.heart-form').submit(function (e) {
+      var form = this;
+      e.preventDefault();
+      setTimeout(function () {
+          form.submit();
+      }, 300); // in milliseconds
+  });
+}
+
 
 
   });
