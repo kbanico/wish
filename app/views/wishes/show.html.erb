@@ -33,6 +33,11 @@
 </div>
 </div>
 
+<audio id="mysoundclip" preload="auto">
+  <!-- <source src="http://www.freesound.org/data/previews/140/140382_2289019-lq.mp3"></source> -->
+  <source src="https://www.freesound.org/data/previews/245/245910_3134068-lq.mp3"></source>
+</audio>
+
 
 <script>
   $(document).ready(function(){
@@ -53,6 +58,12 @@
 });
 
 
+
+var audio = $("#mysoundclip")[0];
+        console.log(audio);
+        $(".btn-remove").click(function() {
+            audio.play();
+        });
 
 
   });
