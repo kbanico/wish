@@ -29,3 +29,6 @@ $(window).scroll(function(e){
     $('.fixedElement').css({'position': 'static', 'top': '0px', "color": "white"});
   }
 });
+
+
+
