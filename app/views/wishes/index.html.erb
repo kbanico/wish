@@ -7,6 +7,7 @@
   <br>
 
   <% @wishes.each do |wish| %>
+    <% if false %>
     <h2 class="text-center"><%= wish.description%></h2>
     <div id="coin_bucket-<%=wish.id%>">
     <p><%=wish.coin_bucket%></p>
@@ -19,7 +20,44 @@
 
     <% end %>
     <%= link_to "view", wish_path(wish) %>
+    <% end %>
     <br>
+
+
+    <div class="form">
+      <h1 class="text-center">
+      <% if wish.user.username.present? %>
+        <%= wish.user.username %>'s wish:
+        <br>
+      <% else %>
+        WISH
+      <% end %>
+      </h1>
+      <p class="lead text-center"><%= wish.description %></p>
+      <h3 class="text-center">
+        <div id="coin_bucket-<%=wish.id%>">
+          <span><%= wish.coin_bucket %></span>
+        </div>
+
+          <% if wish.coin_bucket == 0 %>
+            <span id="fontHeart">
+            <i class="fa fa-heart-o" style="color:red;" aria-hidden="true"></i>
+            </span>
+          <% else %>
+            <i class="fa fa-heart" style="color:red;" aria-hidden="true"></i>
+          <% end %>
+
+       </h3>
+      <%= simple_form_for @donation, url: wish_donations_path(wish), remote: true do |f| %>
+        <%= f.input :amount, input_html: {value: f.object.amount || '1'} %>
+        <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+          <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp; Support Wish
+        <% end %>
+      <% end %>
+  </div>
+
+
+
   <% end %>
 </div>
 

@@ -1,5 +1,9 @@
 $("#coin_bucket-<%=@wish.id%>").html("<%= @wish.coin_bucket %>")
 $("#user-coins-<%=current_user.id%>").html("<%= current_user.coins %>")
 
-console.log("<%=current_user.id%>")
+var coin = $("#coin_bucket-<%=@wish.id%>").text()
+if(coin > 0){
+  $("#fontHeart").html('<i class="fa fa-heart" style="color:red; aria-hidden="true"></i>')
+}
+console.log(coin)
 
