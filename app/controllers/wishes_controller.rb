@@ -2,7 +2,7 @@ class WishesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @wishes = Wish.all
+    @wishes = Wish.all.order("created_at DESC")
     @donation = Donation.new
   end
 
