@@ -6,6 +6,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
   </head>
 
   <body>
@@ -64,7 +66,9 @@
           </div>
           <div class="modal-body">
             <%= simple_form_for Wish.new do |f| %>
-              <%= f.input :description, placeholder: "I Wish For World Peach", label: false %>
+              <div class="field">
+                <%= f.input :description, placeholder: "I Wish For World Peach", label: false %>
+              </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

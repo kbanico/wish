@@ -21,6 +21,8 @@ class WishesController < ApplicationController
   end
 
   def show
+    random = rand(Wish.count)+1
+    @random = Wish.find(random)
     @donation = Donation.new
     @wish = Wish.find(params[:id])
 

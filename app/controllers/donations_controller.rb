@@ -18,11 +18,11 @@ class DonationsController < ApplicationController
       # @wish.update_attributes(coin_bucket: @wish.coin_bucket+new_amount)
 
       if @wish.save
-        random = rand(Wish.count)+1
-        @wish = Wish.find(random)
+        #random = rand(Wish.count)+1
+        #@wish = Wish.find(random)
 
         respond_to do |format|
-          format.html {redirect_to @wish}
+          format.html {redirect_to :back}
           format.js
         end
       else
