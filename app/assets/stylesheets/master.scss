@@ -1,5 +1,9 @@
 @import "bootstrap";
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab:600');
+@import url('https://fonts.googleapis.com/css?family=Spirax');
+
+
 
 html{
   height: 100%;
@@ -160,6 +164,28 @@ h1,h2,h3,h4,h5,h6, .navbar{
     right:6px;
     z-index:100;
 }
+
+.my-font{
+  font-family: 'Josefin Slab', serif;
+
+}
+
+.wish-description{
+  font-family: 'Spirax', cursive;
+  letter-spacing: 2px;
+}
+
+.wish-description::first-letter{
+  text-transform:uppercase;
+}
+.username::first-letter{
+
+    /*font-size: 200%;*/
+    /*color: #8A2BE2;*/
+    text-transform: uppercase;
+
+}
+
 
 
 

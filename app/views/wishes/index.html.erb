@@ -2,7 +2,7 @@
 <div class="float-right white fixedElement"><%= render "/layouts/coins_ui" %></div>
 <br>
 <div class="booyah-box col-sm-10 offset-sm-1">
-  <h1 class="text-center">The Worlds Wishes</h1>
+  <h1 class="text-center my-font">The Worlds Wishes</h1>
   <hr>
   <br>
 
@@ -25,15 +25,15 @@
 
 
     <div class="form">
-      <h1 class="text-center">
+      <h1 class="text-center username">
       <% if wish.user.username.present? %>
-        <%= wish.user.username %>'s wish:
+        <span class="form-username my-font"><%= wish.user.username%>',s Wish:</span>
         <br>
       <% else %>
-        WISH
+       <span class="form-username"> Wish
       <% end %>
       </h1>
-      <p class="lead text-center"><%= wish.description %></p>
+      <p class="lead text-center wish-description"><%= wish.description %></p>
       <h3 class="text-center">
         <div id="coin_bucket-<%=wish.id%>">
           <span><%= wish.coin_bucket %></span>
@@ -55,6 +55,7 @@
         <% end %>
       <% end %>
   </div>
+  <hr>
 
 
 
