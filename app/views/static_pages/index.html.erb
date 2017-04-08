@@ -8,7 +8,45 @@
     <br>
     <h2>Make A Wish</h2>
     <br>
-    <%= link_to "Learn More", "#", class: "btn btn-success" %>
+    <% if user_signed_in? %>
+      <%= link_to "Make A Wish","#",data:{toggle:'modal', target: '#myModal'},class: "btn btn-success"%>
+    <% else %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success" %>
+    <% end %>
     <br> <br>
   </div>
+</div>
+
+  <h1 class=" booyah-box text-center wish-description">Latest Wishes <i class="fa fa-moon-o" aria-hidden="true"></i></h1>
+<div class="row booyah-box">
+  <% @wishes.each do |wish| %>
+    <%= link_to wish_path(wish) do %>
+      <div class="col-6 wish-link">
+        <div class="form">
+              <h1 class="text-center username">
+              <% if wish.user.username.present? %>
+                <span class="form-username my-font"><%= wish.user.username%>',s Wish:</span>
+                <br>
+              <% else %>
+               <span class="form-username"> Wish
+              <% end %>
+              </h1>
+              <p class="lead text-center wish-description"><%= wish.description %></p>
+              <h3 class="text-center">
+                <div id="coin_bucket-<%=wish.id%>">
+                  <span><%= wish.coin_bucket %></span>
+                </div>
+
+                  <% if wish.coin_bucket == 0 %>
+                    <span id="fontHeart">
+                    <i class="fa fa-heart-o" style="color:red;" aria-hidden="true"></i>
+                    </span>
+                  <% else %>
+                    <i class="fa fa-heart" style="color:red;" aria-hidden="true"></i>
+                  <% end %>
+               </h3>
+        </div>
+    <% end %>
+      </div>
+    <% end %>
 </div>
