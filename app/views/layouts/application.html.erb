@@ -69,7 +69,7 @@
             <h4 class="modal-title" id="myModalLabel">Make A Wish!</h4>
           </div>
           <div class="modal-body">
-            <%= simple_form_for Wish.new do |f| %>
+            <%= simple_form_for Wish.new, url: wishes_path(Wish.new) do |f| %>
               <div class="field">
                 <%= f.input :description, placeholder: "I Wish For World Peach", label: false %>
               </div>
