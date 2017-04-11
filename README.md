@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Todo:
+-add comments to wish show page
+-add pagination to wish index page
+-add email functionality when comments are made or wish liked
+-add footer
+-add user page
+-add admin functionality when users don't have enough coins
