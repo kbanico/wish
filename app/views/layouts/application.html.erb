@@ -12,7 +12,7 @@
 
   <body>
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="navbarSideButton" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <% if user_signed_in? %>
@@ -21,7 +21,7 @@
       <a class="navbar-brand" href="#">Wish Upon A Star</a>
     <% end %>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <div id="mainNav" class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0">
         <li class="nav-item">
           <%= link_to "Home",root_path,class: "nav-link" %>
@@ -45,6 +45,30 @@
         <% end %>
       </ul>
     </div>
+    
+    <ul class="navbar-side my-font" id="navbarSide">
+         
+          <li class="nav-item navbar-side-item">
+          <%= link_to "Home",root_path,class: "nav-link" %>
+        </li>
+        <li class="nav-item navbar-side-item">
+          <%= link_to "All Wishes", wishes_path,class: "nav-link" %>
+        </li>
+         
+          <% if user_signed_in? %>
+          <li class="nav-item navbar-side-item">
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item nav-item navbar-side-item">
+            <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item nav-item navbar-side-item">
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+          </li>
+          <% end %>
+    </ul>
+    <div class="overlay"></div>
   </nav>
 
   <% if notice.present? %>
@@ -87,5 +111,31 @@
 
 
     <%= yield %>
+    
+    <script>
+        $(document).ready(function(){
+            //Open navbarSide when button is clicked
+            $("#navbarSideButton").on("click",function(){
+                    $("#navbarSide").addClass("reveal");
+                    $("#mainNav").hide();
+                    $(".overlay").show();
+                
+                
+                
+            });
+            
+            $("#navbarSide").click(function(){
+                $(this).removeClass("reveal");
+                //$("#mainNav").show()
+                $(".overlay").hide();
+            })
+            
+            $(".overlay").on("click",function(){
+                $("#navbarSide").removeClass("reveal");
+                //$("#mainNav").show()
+                $(".overlay").hide();
+            });
+        }) 
+    </script>
   </body>
 </html>
