@@ -76,11 +76,11 @@
         <span class="ct-commentauthorname">
           <%= comment.user.username.upcase() %>
         </span>
-        <span class="ct-commenttime"><%= time_ago_in_words(comment.created_at) %></span>
+        <span class="ct-commenttime"><%= time_ago_in_words(comment.created_at) %> ago</span>
       </div>
       </div>
       <div class="ct-commentcontent">
-        <%= comment.message %>
+        <h4 class="my-font"><%= comment.message %></h4>
       </div>
     </div>
 
