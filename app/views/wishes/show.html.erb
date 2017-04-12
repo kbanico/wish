@@ -28,22 +28,30 @@
      </h3>
     <%= simple_form_for @donation, url: wish_donations_path(@wish), html:{class: "heart-form text-center"} do |f| %>
       <%= f.input :amount, as: :hidden, input_html: {value: f.object.amount || '1'} %>
-      <%= button_tag(type: 'submit', class: "btn btn-remove", id:"btn-remove") do %>
-        <i class="fa fa-heart-o fa-3x" style="color:red;" aria-hidden="true"></i>
+      <%= button_tag(type: 'submit', class: "btn btn-remove", id:"btn-heart") do %>
+        <i class="fa fa-heart-o fa-3x fa-show" style="color:red;" aria-hidden="true"></i>
       <% end %>
 
       <%= link_to wish_path(Wish.find(@random)) do %>
       <%= button_tag(type: 'button', class: "btn btn-remove", id:"random-btn") do %>
-        <i class="fa fa-tint fa-3x" aria-hidden="true" style="color:purple;"></i>
+        <i class="fa fa-tint fa-3x fa-show" aria-hidden="true" style="color:purple;"></i>
       <% end %>
       <% end %>
+
+      <%= link_to new_wish_comment_path(@wish) do %>
+        <i class="fa fa-comment-o fa-3x fa-show" aria-hidden="true"></i>
+      <% end %>
+
+
     <% end %>
   </div>
 </div>
+
 </div>
 
 <div class="booyah-box col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 comment-section">
-<div class="make-comment">
+<!-- COMMENT SECTION WITHOUT NEW PAGE -->
+<!-- <div class="make-comment">
   <h3 class="my-font text-center">Comments</h3>
   <br>
   <%= simple_form_for @comment, url: wish_comments_path(@wish) do |f| %>
@@ -51,7 +59,7 @@
     <%= f.submit "Add a Comment", class: "btn btn-primary hideMe clickMe", input_html: {id: "commentsubmit"}%>
   <% end %>
   <hr>
-</div>
+</div> -->
 
 
 
@@ -104,7 +112,7 @@ $("#random-btn").on("click",function(event) {
 <% if user_signed_in? %>
 if(<%= current_user.coins%> >0){
 
-  $("#btn-remove").click(function(){
+  $("#btn-heart").click(function(){
       $("#heart-animation").animate({
         fontSize: "300px",
         opacity: "1"
@@ -112,8 +120,7 @@ if(<%= current_user.coins%> >0){
    });
 
   var audio = $("#mysoundclip")[0];
-    console.log(audio);
-    $("#btn-remove").click(function() {
+    $("#btn-heart").click(function() {
         audio.play();
   });
 
@@ -122,19 +129,19 @@ if(<%= current_user.coins%> >0){
       e.preventDefault();
       setTimeout(function () {
           form.submit();
-      }, 300); // in milliseconds
+      }, 230); // in milliseconds
   });
 }
 
 <% end %>
 
 // check if enter key is pressed on the comment form
-$("#comment_message").keypress(function(e) {
-    if(e.which == 13) {
-      $(".clickMe").click();
-      $(this).val("")
-    }
-});
+// $("#comment_message").keypress(function(e) {
+//     if(e.which == 13) {
+//       $(".clickMe").click();
+//       $(this).val("")
+//     }
+// });
 
   });
 

@@ -1,0 +1,23 @@
+<div class="make-comment">
+  <h3 class="my-font text-center">Comments</h3>
+  <br>
+  <%= simple_form_for @comment, url: wish_comments_path(@wish) do |f| %>
+    <%= f.input :message, label: false, placeholder: "Add Comment" %>
+    <%= f.submit "Add a Comment", class: "btn btn-primary hideMe clickMe", input_html: {id: "commentsubmit"}%>
+  <% end %>
+  <hr>
+</div>
+
+
+<script>
+  $(function(){
+    // check if enter key is pressed on the comment form
+    $("#comment_message").keypress(function(e) {
+        if(e.which == 13) {
+          $(".clickMe").click();
+          $(this).val("")
+        }
+    });
+  })
+
+</script>
