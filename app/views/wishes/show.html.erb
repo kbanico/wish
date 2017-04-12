@@ -2,7 +2,7 @@
 <div class="float-right white"><%= render "/layouts/coins_ui" %></div>
 <br />
 <div class="booyah-box2 col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2"  id="kcontainer">
-<div id="cloud-container" style="background-image: url('<%=@req%>'); -webkit-background-size: cover;
+<div id="cloud-container" style="background-image: url('<%=@wish.url%>'); -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;" >
@@ -84,17 +84,18 @@
 
 var animations = ["flip", "lightSpeedIn","rotateIn","slideInUp"]
 var random = Math.floor(Math.random()*animations.length)
-console.log(animations[random])
+
 
 $("#random-btn").on("click",function(event) {
     $(this).hide();
     event.preventDefault()
     // do other stuff here
     $("#kcontainer").addClass("animated "+ animations[random])
+    window.location = "/wishes/<%=@random.id%>"
       setTimeout(function(){
         $("#kcontainer").removeClass("animated " + animations[random])
-        window.location = "/wishes/<%=@random.id%>"
-        console.log("<%=@random.id%>")
+
+
 
       },700)
 
@@ -137,7 +138,6 @@ $("#comment_message").keypress(function(e) {
 
   });
 
-  console.log("<%= @req.to_s %>")
 
 </script>
 

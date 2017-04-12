@@ -41,6 +41,10 @@ class WishesController < ApplicationController
     res = Net::HTTP.get_response(URI('https://source.unsplash.com/category/nature'))
     @req = res['location']
 
+    if @wish.url.nil?
+      @wish.update_attributes(url: @req)
+    end
+
 
 
   end
