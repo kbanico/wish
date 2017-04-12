@@ -243,6 +243,10 @@ h1,h2,h3,h4,h5,h6, .navbar{
   letter-spacing: 3px;
 }
 
+.hideMe{
+  visibility:hidden;
+}
+
 /* SIDE NAV */
 .navbar-side{
     height: 100%;
@@ -276,7 +280,7 @@ h1,h2,h3,h4,h5,h6, .navbar{
 .navbar-side a{
     padding-left:2rem;
     color: white;
-    
+
 }
 
  .reveal {
@@ -298,6 +302,47 @@ h1,h2,h3,h4,h5,h6, .navbar{
     background-color: #ccc;
     opacity:0.6;
     z-index: 990;
+}
+
+
+/* Comment Section */
+.comment-meta {
+    position: relative;
+    padding-left: 45px;
+    min-height: 37px;
+    height: auto;
+    background: #f1f5f8;
+    line-height: 37px;
+}
+
+.ct-commentauthorname {
+    color: #A5AFC0;
+    font-weight: bold;
+}
+
+.ct-commenttime {
+    display: inline;
+    float: right;
+    margin-right: 10px;
+    color: rgb(165, 175, 192);
+}
+
+.ct-commentnumber {
+    position: absolute;
+    right: 10px;
+    bottom: 23px;
+    color: #F4F5F7;
+    font-size: 36px;
+    line-height: 36px;
+}
+
+.ct-commentcontent, .ct-author-page-desc {
+    line-height: 1.5;
+}
+
+.ct-commentcontent {
+    position: relative;
+    padding: 20px 55px 30px 45px;
 }
 
 

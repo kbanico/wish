@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "static_pages#index"
   resources :wishes, only: [:new, :create, :show, :index] do
     resources :donations, only: :create
+    resources :comments, only: :create
   end
 
 end

@@ -1,7 +1,7 @@
 <br>
 <div class="float-right white"><%= render "/layouts/coins_ui" %></div>
 <br />
-<div class="booyah-box2 col-10 offset-1"  id="kcontainer">
+<div class="booyah-box2 col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2"  id="kcontainer">
 <div id="cloud-container">
   <div class="form">
     <h1 class="text-center username">
@@ -37,6 +37,37 @@
     <% end %>
   </div>
 </div>
+</div>
+
+<div class="booyah-box col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 comment-section">
+<div class="make-comment">
+  <h3 class="my-font text-center">Comments</h3>
+  <br>
+  <%= simple_form_for @comment, url: wish_comments_path(@wish) do |f| %>
+    <%= f.input :message, label: false, placeholder: "Add Comment" %>
+    <%= f.submit "Add a Comment", class: "btn btn-primary hideMe clickMe", input_html: {id: "commentsubmit"}%>
+  <% end %>
+  <hr>
+</div>
+
+
+
+  <div class="comment">
+    <div class="comment-meta">
+    <div class="comment-author">
+      <!-- <span class="ct-commentthumb"></span> -->
+      <span class="ct-commentauthorname">
+        KEN
+      </span>
+      <span class="ct-commenttime">APRIL 12 2017</span>
+    </div>
+    </div>
+    <div class="ct-commentcontent">
+      <p>ONE stop! FULL service!
+      <br>
+      AWESOME! GREAT n’ TNX!</p>
+    </div>
+  </div>
 </div>
 
 <audio id="mysoundclip" preload="auto">
@@ -92,6 +123,14 @@ if(<%= current_user.coins%> >0){
 }
 
 <% end %>
+
+// check if enter key is pressed on the comment form
+$("#comment_message").keypress(function(e) {
+    if(e.which == 13) {
+      $(".clickMe").click();
+      $(this).val("")
+    }
+});
 
   });
 

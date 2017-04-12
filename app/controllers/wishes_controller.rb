@@ -26,6 +26,9 @@ class WishesController < ApplicationController
     @donation = Donation.new
     @wish = Wish.find(params[:id])
 
+    #comment
+    @comment = Comment.new
+
   end
 
   private
