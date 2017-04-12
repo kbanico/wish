@@ -26,7 +26,6 @@ class CommentsController < ApplicationController
     else
       flash[:error] = "Something went wrong"
       render :new
-
     end
 
 
