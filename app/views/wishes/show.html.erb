@@ -154,7 +154,10 @@ if(<%= current_user.coins%> >0){
 
   $("#comment-badge").on("click",function(){
     $(".comment-div").slideDown("slow",function(){
-      $("#comment-badge").slideUp();
+      if(<%= @wish.comments.count %> > 0){
+        $("#comment-badge").slideUp();
+      }
+
     })
 
   })
