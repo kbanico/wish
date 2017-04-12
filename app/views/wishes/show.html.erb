@@ -62,23 +62,26 @@
 </div> -->
 
 
+  <% @wish.comments.each do |comment| %>
 
-  <div class="comment">
-    <div class="comment-meta">
-    <div class="comment-author">
-      <!-- <span class="ct-commentthumb"></span> -->
-      <span class="ct-commentauthorname">
-        KEN
-      </span>
-      <span class="ct-commenttime">APRIL 12 2017</span>
+    <div class="comment">
+      <div class="comment-meta">
+      <div class="comment-author">
+        <!-- <span class="ct-commentthumb"></span> -->
+        <span class="ct-commentauthorname">
+          <%= comment.user.username.upcase() %>
+        </span>
+        <span class="ct-commenttime"><%= time_ago_in_words(comment.created_at) %></span>
+      </div>
+      </div>
+      <div class="ct-commentcontent">
+        <%= comment.message %>
+      </div>
     </div>
-    </div>
-    <div class="ct-commentcontent">
-      <p>ONE stop! FULL service!
-      <br>
-      AWESOME! GREAT n’ TNX!</p>
-    </div>
-  </div>
+
+    <br>
+
+  <% end %>
 </div>
 
 <audio id="mysoundclip" preload="auto">
