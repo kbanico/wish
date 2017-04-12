@@ -18,14 +18,24 @@ class CommentsController < ApplicationController
     @wish = Wish.find(params[:wish_id])
     @wish.comments.create(comment_params.merge(user: current_user))
 
+    @comment = @wish.comments.last
+    if @comment.save
+      @wish.comments.last.update_attributes(url: $req)
+      @wish.save
+      redirect_to  wish_path(@wish)
+    else
+      flash[:error] = "Something went wrong"
+      render :new
+
+    end
+
+
 
     #  # unsplash
     # res = Net::HTTP.get_response(URI('https://source.unsplash.com/random'))
     # @req = res['location']
 
-    @wish.comments.last.update_attributes(url: $req)
-    @wish.save
-    redirect_to  wish_path(@wish)
+
   end
 
   private
