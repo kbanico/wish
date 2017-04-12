@@ -2,6 +2,10 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def new
+     # unsplash
+    res = Net::HTTP.get_response(URI('https://source.unsplash.com/category/nature'))
+    @req = res['location']
+
     @wish = Wish.find(params[:wish_id])
     @comment = Comment.new
   end
