@@ -32,10 +32,14 @@ class WishesController < ApplicationController
     #comment
     @comment = Comment.new
 
-    uri = URI('https://source.unsplash.com/category/nature')
-    req = Net::HTTP.get(uri)
-    new_req = URI.extract(req)
-    @req = new_req
+    # uri = URI('https://source.unsplash.com/category/nature')
+    # req = Net::HTTP.get(uri)
+    # new_req = URI.extract(req)
+    # @req = new_req
+
+    # unsplash
+    res = Net::HTTP.get_response(URI('https://source.unsplash.com/category/nature'))
+    @req = res['location']
 
 
 

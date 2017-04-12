@@ -2,7 +2,10 @@
 <div class="float-right white"><%= render "/layouts/coins_ui" %></div>
 <br />
 <div class="booyah-box2 col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2"  id="kcontainer">
-<div id="cloud-container">
+<div id="cloud-container" style="background-image: url('<%=@req%>'); -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;" >
   <div class="form">
     <h1 class="text-center username">
     <% if @wish.user.username.present? %>
@@ -134,7 +137,7 @@ $("#comment_message").keypress(function(e) {
 
   });
 
-  console.log("<%= @req %>")
+  console.log("<%= @req.to_s %>")
 
 </script>
 
