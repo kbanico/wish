@@ -1,4 +1,7 @@
+require 'net/http'
+require 'uri'
 class WishesController < ApplicationController
+
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -28,6 +31,13 @@ class WishesController < ApplicationController
 
     #comment
     @comment = Comment.new
+
+    uri = URI('https://source.unsplash.com/category/nature')
+    req = Net::HTTP.get(uri)
+    new_req = URI.extract(req)
+    @req = new_req
+
+
 
   end
 
