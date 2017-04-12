@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   def create
     @wish = Wish.find(params[:wish_id])
     @wish.comments.create(comment_params.merge(user: current_user))
-    redirect_to :back
+    redirect_to  wish_path(@wish)
   end
 
   private

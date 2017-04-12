@@ -1,5 +1,6 @@
-<div class="make-comment">
-  <h3 class="my-font text-center">Comments</h3>
+<br>
+<div class="make-comment col-12 col-sm-10 offset-sm-1 text-center animated bounce">
+  <h2 class="my-font2 text-center">Leave Comment</h2>
   <br>
   <%= simple_form_for @comment, url: wish_comments_path(@wish) do |f| %>
     <%= f.input :message, label: false, placeholder: "Add Comment" %>

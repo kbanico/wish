@@ -2,6 +2,8 @@
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Josefin+Slab:600');
 @import url('https://fonts.googleapis.com/css?family=Spirax');
+@import url('https://fonts.googleapis.com/css?family=Qwigley');
+
 
 
 
@@ -202,6 +204,14 @@ h1,h2,h3,h4,h5,h6, .navbar{
 
 }
 
+.my-font2{
+  font-family: 'Qwigley', cursive;
+  font-size: 7em;
+  color: #f3f4f6;
+  text-shadow: 1px 3px black;
+
+}
+
 .wish-description{
   font-family: 'Spirax', cursive;
   letter-spacing: 3px;
@@ -349,6 +359,41 @@ h1,h2,h3,h4,h5,h6, .navbar{
   margin:0 10px;
 }
 
+#comment_message{
+  background: none;
+  font-size:5em;
+  color: white;
+  resize: none;
+  border: 0 none;
+  width:100%;
+  outline: none;
+  height: 100%;
+  position:absolute;
+
+
+
+}
+
+
+.make-comment{
+  background: transparant;
+  padding: 20px;
+  height: 100%;
+  position: relative;
+}
+
+/*
+ background: transparent;
+  color: white;
+  resize: none;
+  border: 0 none;
+  width: 100%;
+  font-size: 5em;
+  outline: none;
+  height: 100%;
+  position: absolute;
+*/
+
 
 
 
@@ -358,5 +403,14 @@ h1,h2,h3,h4,h5,h6, .navbar{
     max-width:400px;
     margin: 100px auto;
   }
+
+  .my-font2{
+  font-family: 'Qwigley', cursive;
+  font-size: 5em;
+  color: #f3f4f6;
+  text-shadow: 1px 3px black;
+
+}
+
 }
 
