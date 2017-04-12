@@ -61,7 +61,12 @@
   <hr>
 </div> -->
 
+<h3><span id="comment-badge" class="badge badge-info"><%= pluralize(@wish.comments.count,"Comment") %></span></h3>
 
+
+
+<br>
+<div class="comment-div">
   <% @wish.comments.each do |comment| %>
 
     <div class="comment">
@@ -82,6 +87,7 @@
     <br>
 
   <% end %>
+</div>
 </div>
 
 <audio id="mysoundclip" preload="auto">
@@ -145,6 +151,10 @@ if(<%= current_user.coins%> >0){
 //       $(this).val("")
 //     }
 // });
+
+  $("#comment-badge").on("click",function(){
+    $(".comment-div").slideDown()
+  })
 
   });
 
