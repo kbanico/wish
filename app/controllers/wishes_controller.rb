@@ -38,7 +38,7 @@ class WishesController < ApplicationController
     # @req = new_req
 
     # unsplash
-    res = Net::HTTP.get_response(URI('https://source.unsplash.com/category/nature'))
+    res = Net::HTTP.get_response(URI('https://source.unsplash.com/random'))
     @req = res['location']
 
     if @wish.url.nil?

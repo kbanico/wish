@@ -1,10 +1,14 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  # unsplash
+
 
   def new
-     # unsplash
-    res = Net::HTTP.get_response(URI('https://source.unsplash.com/category/nature'))
-    @req = res['location']
+
+    #unsplash background on form
+    res = Net::HTTP.get_response(URI('https://source.unsplash.com/random'))
+    $req = res['location']
+    @req = $req
 
     @wish = Wish.find(params[:wish_id])
     @comment = Comment.new
@@ -15,11 +19,11 @@ class CommentsController < ApplicationController
     @wish.comments.create(comment_params.merge(user: current_user))
 
 
-     # unsplash
-    res = Net::HTTP.get_response(URI('https://source.unsplash.com/category/nature'))
-    @req = res['location']
+    #  # unsplash
+    # res = Net::HTTP.get_response(URI('https://source.unsplash.com/random'))
+    # @req = res['location']
 
-    @wish.comments.last.update_attributes(url: @req)
+    @wish.comments.last.update_attributes(url: $req)
     @wish.save
     redirect_to  wish_path(@wish)
   end

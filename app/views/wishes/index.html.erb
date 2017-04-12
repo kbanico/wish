@@ -10,7 +10,10 @@
   <%= link_to wish_path(wish) do%>
   <div class="col-6 col-sm-6 wish-link">
       <br>
-      <div class="form">
+      <div class="form"  style="background-image: url('<%=wish.url%>'); -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;">
           <h1 class="text-center username">
           <% if wish.user.username.present? %>
             <span class="form-username my-font"><%= wish.user.username%>',s Wish:</span>
