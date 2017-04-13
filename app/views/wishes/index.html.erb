@@ -4,12 +4,12 @@
 <div class="booyah-box col-sm-10 offset-sm-1">
   <h1 class="text-center my-font">Wish List</h1>
   <hr>
-  <br>
+
  <div class="row">
    <% @wishes.each do |wish| %>
   <%= link_to wish_path(wish) do%>
   <div class="col-6 col-sm-6 wish-link">
-      <br>
+
       <div class="form"  style="background-image: url('<%=wish.url%>'); -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
