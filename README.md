@@ -32,3 +32,4 @@ Things you may want to cover:
 -add admin functionality when users don't have enough coins
 -add categories
 -add validations to comments, and other models
+-add number of replies to the index page of wish
