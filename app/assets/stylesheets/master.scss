@@ -406,6 +406,12 @@ h1,h2,h3,h4,h5,h6, .navbar{
     justify-content: center;
 }
 
+.page-item.active .page-link {
+    z-index: 2;
+    color: #fff;
+    background-color: #43D1AF;
+    border-color: #43D1AF;
+}
 
 
 
