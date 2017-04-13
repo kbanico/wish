@@ -5,7 +5,8 @@ class WishesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @wishes = Wish.all.order("created_at DESC")
+    #@wishes = Wish.all.order("created_at DESC")
+    @wishes = Wish.all.order("created_at DESC").paginate(:page => params[:page], per_page: 4)
     @donation = Donation.new
   end
 
