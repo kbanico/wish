@@ -12,12 +12,20 @@ class WishesController < ApplicationController
 
 
   def new
+    #unsplash background on form
+    res = Net::HTTP.get_response(URI('https://source.unsplash.com/random'))
+    $req = res['location']
+    @req = $req
+
     @wish = Wish.new
   end
 
   def create
     @wish = current_user.wishes.create(wish_params)
     if @wish.valid?
+      if @wish.url.nil?
+        @wish.update_attributes(url: $req)
+      end
       redirect_to wish_path(@wish)
     else
       render :new, status: :unprocessable_entity
@@ -33,18 +41,14 @@ class WishesController < ApplicationController
     #comment
     @comment = Comment.new
 
-    # uri = URI('https://source.unsplash.com/category/nature')
-    # req = Net::HTTP.get(uri)
-    # new_req = URI.extract(req)
-    # @req = new_req
 
     # unsplash
-    res = Net::HTTP.get_response(URI('https://source.unsplash.com/random'))
-    @req = res['location']
+    # res = Net::HTTP.get_response(URI('https://source.unsplash.com/random'))
+    # @req = res['location']
 
-    if @wish.url.nil?
-      @wish.update_attributes(url: @req)
-    end
+    # if @wish.url.nil?
+    #   @wish.update_attributes(url: @req)
+    # end
 
 
 

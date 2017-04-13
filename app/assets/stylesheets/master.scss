@@ -372,7 +372,7 @@ h1,h2,h3,h4,h5,h6, .navbar{
   margin:0 10px;
 }
 
-#comment_message{
+#comment_message, #wish_description{
   background: none;
   font-size:5em;
   color: white;
@@ -382,6 +382,7 @@ h1,h2,h3,h4,h5,h6, .navbar{
   outline: none;
   height: 100%;
   position:absolute;
+  text-shadow: 1px 3px black;
 
 
 
@@ -411,6 +412,21 @@ h1,h2,h3,h4,h5,h6, .navbar{
     color: #fff;
     background-color: #43D1AF;
     border-color: #43D1AF;
+}
+
+.wish-button{
+  position:absolute;
+  top: 0;
+  right:0;
+  background-color:  #43D1AF;
+  border-color: white;
+  color:white;
+}
+
+.btn.nohover:hover {
+    /* here copy default .btn class styles */
+    cursor:default !important;
+    /* or something like that */
 }
 
 

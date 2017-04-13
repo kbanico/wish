@@ -15,17 +15,29 @@
     <button id="navbarSideButton" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <% if user_signed_in? %>
-      <%= link_to "Make A Wish","#",data:{toggle:'modal', target: '#myModal'},class: "nav-link", class: "navbar-brand" %>
-    <% else %>
-      <a class="navbar-brand" href="#">Wish Upon A Star</a>
+    <%= link_to "Wish App",root_path,class: "navbar-brand" %>
+
+
+<!--  -->
+    <% if false %>
+      <% if user_signed_in? %>
+        <%= link_to "Make A Wish","#",data:{toggle:'modal', target: '#myModal'},class: "nav-link", class: "navbar-brand" %>
+      <% else %>
+        <a class="navbar-brand" href="#">Wish Upon A Star</a>
+      <% end %>
     <% end %>
+<!--  -->
 
     <div id="mainNav" class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0">
         <li class="nav-item">
           <%= link_to "Home",root_path,class: "nav-link" %>
         </li>
+
+        <li class="nav-item">
+          <%= link_to "Make A Wish", new_wish_path,class: "nav-link" %>
+        </li>
+
         <li class="nav-item">
           <%= link_to "All Wishes", wishes_path,class: "nav-link" %>
         </li>
@@ -45,16 +57,20 @@
         <% end %>
       </ul>
     </div>
-    
+
     <ul class="navbar-side my-font" id="navbarSide">
-         
-          <li class="nav-item navbar-side-item">
+
+        <li class="nav-item navbar-side-item">
           <%= link_to "Home",root_path,class: "nav-link" %>
+        </li>
+
+         <li class="nav-item navbar-side-item">
+          <%= link_to "Make A Wish", new_wish_path,class: "nav-link" %>
         </li>
         <li class="nav-item navbar-side-item">
           <%= link_to "All Wishes", wishes_path,class: "nav-link" %>
         </li>
-         
+
           <% if user_signed_in? %>
           <li class="nav-item navbar-side-item">
             <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
@@ -111,7 +127,7 @@
 
 
     <%= yield %>
-    
+
     <script>
         $(document).ready(function(){
             //Open navbarSide when button is clicked
@@ -119,23 +135,23 @@
                     $("#navbarSide").addClass("reveal");
                     $("#mainNav").hide();
                     $(".overlay").show();
-                
-                
-                
+
+
+
             });
-            
+
             $("#navbarSide").click(function(){
                 $(this).removeClass("reveal");
                 //$("#mainNav").show()
                 $(".overlay").hide();
             })
-            
+
             $(".overlay").on("click",function(){
                 $("#navbarSide").removeClass("reveal");
                 //$("#mainNav").show()
                 $(".overlay").hide();
             });
-        }) 
+        })
     </script>
   </body>
 </html>
