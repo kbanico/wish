@@ -127,7 +127,7 @@ h1,h2,h3,h4,h5,h6, .navbar{
 /* FORM */
 .form{
     font: 95% Arial, Helvetica, sans-serif;
-    width: 100%;
+    max-width: 100%;
     margin: 5% auto;
     padding: 16px;
     background: #F7F7F7;
@@ -434,7 +434,7 @@ h1,h2,h3,h4,h5,h6, .navbar{
 
 @media (max-width:641px){
   .form{
-    max-width:400px;
+    max-width:100%;
     margin: 100px auto;
   }
 
