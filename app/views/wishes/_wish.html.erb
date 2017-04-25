@@ -1,0 +1,43 @@
+<div class="form" style="background-image: url('<%=wish.url%>'); -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;">
+    <h1 class="text-center username">
+    <% if wish.user.username.present? %>
+       <span class="form-username my-font"><%= wish.user.username %>'s Wish:</span>
+      <br>
+    <% else %>
+      <span class="form-username">Wish</span>
+    <% end %>
+    </h1>
+    <p class="lead text-center wish-description"><%= wish.description %></p>
+     <div class="comment-heart">
+                <h3 class="text-center">
+                  <div class="wish-coin">
+                    <div id="coin_bucket-<%=wish.id%>">
+                      <span><%= wish.coin_bucket %></span>
+                    </div>
+                    <% if wish.coin_bucket == 0 %>
+                      <span id="fontHeart">
+                      <i class="fa fa-heart-o" style="color:red;" aria-hidden="true"></i>
+                      </span>
+                    <% else %>
+                      <i class="fa fa-heart" style="color:red;" aria-hidden="true"></i>
+                    <% end %>
+                  </div>
+
+                  <div class="wish-comments">
+                    <div id="wish-comments">
+                      <span><%= wish.comments.count %></span>
+                    </div>
+                    <% if wish.comments.count == 0 %>
+                      <span style="color:#0275d8"><i class="fa fa-comment-o fa-show" aria-hidden="true"></i></span>
+                    <% else %>
+                      <span style="color:#0275d8"><i class="fa fa-comment fa-show" aria-hidden="true"></i></span>
+                    <% end %>
+                  </div>
+               </h3>
+              </div>
+
+
+</div>

@@ -9,60 +9,9 @@
    <% @wishes.each do |wish| %>
   <%= link_to wish_path(wish) do%>
   <div class="col-6 col-sm-6 wish-link">
+    <%= render "wish", wish: wish %>
 
-      <div class="form"  style="background-image: url('<%=wish.url%>'); -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;">
-          <h1 class="text-center username">
-          <% if wish.user.username.present? %>
-            <span class="form-username my-font"><%= wish.user.username%>',s Wish:</span>
-            <br>
-          <% else %>
-           <span class="form-username"> Wish
-          <% end %>
-          </h1>
-          <p class="lead text-center wish-description"><%= wish.description %></p>
-
-          <div class="comment-heart">
-            <h3 class="text-center">
-              <div class="wish-coin">
-                <div id="coin_bucket-<%=wish.id%>">
-                  <span><%= wish.coin_bucket %></span>
-                </div>
-                <% if wish.coin_bucket == 0 %>
-                  <span id="fontHeart">
-                  <i class="fa fa-heart-o" style="color:red;" aria-hidden="true"></i>
-                  </span>
-                <% else %>
-                  <i class="fa fa-heart" style="color:red;" aria-hidden="true"></i>
-                <% end %>
-              </div>
-
-              <div class="wish-comments">
-                <div id="wish-comments">
-                  <span><%= wish.comments.count %></span>
-                </div>
-                <% if wish.comments.count == 0 %>
-                  <span style="color:#0275d8"><i class="fa fa-comment-o fa-show" aria-hidden="true"></i></span>
-                <% else %>
-                  <span style="color:#0275d8"><i class="fa fa-comment fa-show" aria-hidden="true"></i></span>
-                <% end %>
-              </div>
-           </h3>
-          </div>
-
-          <% if false %>
-            <%= simple_form_for @donation, url: wish_donations_path(wish), remote: true do |f| %>
-              <%= f.input :amount, input_html: {value: f.object.amount || '1'} %>
-              <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp; Support Wish
-              <% end %>
-            <% end %>
-
-          <% end %>
-      </div>
-    <% end %>
+  <% end %>
     <hr>
   </div>
 <% end %>
