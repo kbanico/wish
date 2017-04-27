@@ -44,9 +44,24 @@
   <br> <br>
 
   <div class="row">
-    <% @user.wishes.each do |wish| %>
+    <% @user.wishes.reverse.each do |wish| %>
       <div class="col-12 col-sm-5 offset-sm-1">
-        <blockquote class="blockquote"><%= link_to wish.description, wish_path(wish) %></blockquote>
+        <blockquote class="blockquote my-font"><%= link_to wish.description, wish_path(wish) %></blockquote>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="booyah-box">
+  <br> <br>
+  <h1 class="text-center my-font3 underlined">My Comments</h1>
+  <br> <br>
+
+  <div class="row">
+    <% @user.comments.reverse.each do |comment| %>
+      <div class="col-12 col-sm-5 offset-sm-1">
+        <blockquote class="blockquote my-font"><%= link_to comment.message, wish_path(comment.wish) %></blockquote>
       </div>
     <% end %>
   </div>
