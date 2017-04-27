@@ -17,16 +17,7 @@
     </button>
     <%= link_to "Wish App",root_path,class: "navbar-brand" %>
 
-
-<!--  -->
-    <% if false %>
-      <% if user_signed_in? %>
-        <%= link_to "Make A Wish","#",data:{toggle:'modal', target: '#myModal'},class: "nav-link", class: "navbar-brand" %>
-      <% else %>
-        <a class="navbar-brand" href="#">Wish Upon A Star</a>
-      <% end %>
-    <% end %>
-<!--  -->
+    <!-- DESKTOP NAV -->
 
     <div id="mainNav" class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0">
@@ -44,6 +35,13 @@
       </ul>
       <ul class="navbar-nav">
         <% if user_signed_in? %>
+
+          <li class="nav-item">
+            <%= link_to user_path(current_user), class: "nav-link" do %>
+              My Profile <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            <% end %>
+          </li>
+
           <li class="nav-item">
             <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
@@ -57,6 +55,8 @@
         <% end %>
       </ul>
     </div>
+
+    <!-- SIDE BAR NAV -->
 
     <ul class="navbar-side my-font" id="navbarSide">
 
@@ -72,6 +72,15 @@
         </li>
 
           <% if user_signed_in? %>
+
+          <li class="nav-item">
+
+            <%= link_to user_path(current_user), class: "nav-link" do %>
+              My Profile <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            <% end %>
+
+          </li>
+
           <li class="nav-item navbar-side-item">
             <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
