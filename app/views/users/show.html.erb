@@ -12,8 +12,9 @@
       <h3>Lastest Wishes</h3>
       <br>
       <% @wishes.reverse.each do |wish| %>
-        <%=wish.description %>
-        <br>
+        <div>
+          <p class="my-font">-<%= link_to wish.description, wish_path(wish)%></p>
+        </div>
       <% end %>
     </div>
 
@@ -21,13 +22,24 @@
     <br>
       <h3>Latest Replies</h3>
       <br>
-      <% @comments.reverse.each do |comment| %>
-        <%= comment.user.username %>
-        <%= comment.message %>
+      <% @comments.reverse.each do |comment|%>
+        <%= link_to wish_path(comment.wish) do %>
+          <p class="my-font">-<%= comment.user.username%>:
+          <%= comment.message%></p>
+        <% end %>
         <br>
       <% end %>
     </div>
   </div>
   <div class="clear"></div>
 
+</div>
+
+<h1 class="text-center">My Wishes</h1>
+<div class="row">
+  <% @user.wishes.each do |wish| %>
+    <div class="col-12 col-sm-6">
+      <blockquote class="blockquote"><%= wish.description %></blockquote>
+    </div>
+  <% end %>
 </div>
