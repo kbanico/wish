@@ -149,14 +149,6 @@ if(<%= current_user.coins%> >0){
 
 <% end %>
 
-// check if enter key is pressed on the comment form
-// $("#comment_message").keypress(function(e) {
-//     if(e.which == 13) {
-//       $(".clickMe").click();
-//       $(this).val("")
-//     }
-// });
-
   $("#comment-badge").on("click",function(){
     $(".comment-div").slideDown("slow",function(){
       if(<%= @wish.comments.count %> > 0){
