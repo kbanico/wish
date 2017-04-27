@@ -1,4 +1,33 @@
-<h1><%= @user.username %></h1>
-<h3>Member since: <%= @user.created_at.strftime("%B %d %Y") %></h3>
-<h4>Total wishes: <%= @user.wishes.count%></h4>
-<h4>Total replies: <%= @user.comments.count%></h4>
+<div class="booyah-box">
+  <div class="row">
+    <div class="col-12 col-sm-4">
+      <h1><%= @user.username %></h1>
+      <h3>Member since: <%= @user.created_at.strftime("%B %d %Y") %></h3>
+      <h4>Total wishes: <%= @user.wishes.count%></h4>
+      <h4>Total replies: <%= @user.comments.count%></h4>
+    </div>
+
+    <div class="col-12 col-sm-4">
+    <br>
+      <h3>Lastest Wishes</h3>
+      <br>
+      <% @wishes.reverse.each do |wish| %>
+        <%=wish.description %>
+        <br>
+      <% end %>
+    </div>
+
+    <div class="col-12 col-sm-4">
+    <br>
+      <h3>Latest Replies</h3>
+      <br>
+      <% @comments.reverse.each do |comment| %>
+        <%= comment.user.username %>
+        <%= comment.message %>
+        <br>
+      <% end %>
+    </div>
+  </div>
+  <div class="clear"></div>
+
+</div>

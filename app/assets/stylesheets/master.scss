@@ -17,6 +17,10 @@ body{
   height: 100%;
 }
 
+.clear{
+  clear:both;
+}
+
 #kcontainer{
   min-height:500px;
   position: relative;
