@@ -19,7 +19,7 @@
 
   <h1 class=" booyah-box text-center wish-description">Latest Wishes <i class="fa fa-moon-o" aria-hidden="true"></i></h1>
 <div class="row booyah-box">
-  <% @wishes.each do |wish| %>
+  <% @wishes.reverse.each do |wish| %>
     <%= link_to wish_path(wish) do %>
       <div class="col-6 wish-link">
         <%= render "wishes/wish", wish: wish %>
