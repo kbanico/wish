@@ -1,1 +1,4 @@
-<h1>User Dashboard</h1>
+<h1><%= @user.username %></h1>
+<h3>Member since: <%= @user.created_at.strftime("%B %d %Y") %></h3>
+<h4>Total wishes: <%= @user.wishes.count%></h4>
+<h4>Total replies: <%= @user.comments.count%></h4>
