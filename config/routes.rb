@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show]
+  resources :upload_photos
 
 end

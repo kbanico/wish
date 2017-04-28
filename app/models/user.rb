@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :wishes
   has_many :donations
   has_many :comments
+  has_many :photos
 
 end
 
