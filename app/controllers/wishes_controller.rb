@@ -18,6 +18,7 @@ class WishesController < ApplicationController
     @req = $req
 
     @wish = Wish.new
+    @photos = Photo.all
   end
 
   def create
