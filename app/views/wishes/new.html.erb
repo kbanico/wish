@@ -41,6 +41,7 @@
   <h2 class="my-font2 text-center">Make A Wish</h2>
   <%= simple_form_for @wish, url: wishes_path do |f| %>
     <%= f.input :description, placeholder: "I Wish For World Peace", label: false, class: "wish-description" %>
+    <%= f.hidden_field :url%>
     <br>
 
 
@@ -71,17 +72,21 @@
     $("img").click(function(e){
       console.log(e.target.src)
       imageUrl = e.target.src;
-      wish_description = $("#wish_description").val()
+      // wish_description = $("#wish_description").val()
 
-      $.post("/wishes",{
-        wish: {
-          url: imageUrl,
-          description: wish_description
-        }
-      }).success(function(data){
-        console.log("SUCCESS")
-      })
+      // $.post("/wishes",{
+      //   wish: {
+      //     url: imageUrl,
+      //     description: wish_description
+      //   }
+      // }).success(function(data){
+      //   console.log("SUCCESS")
+      // })
+      $("#wish_url").val(imageUrl)
+      $("#myModal, .modal-backdrop").hide()
+
     });
+
 
   });
 
