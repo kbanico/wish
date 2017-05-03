@@ -1,3 +1,15 @@
-<%= @photos.each do |photo| %>
+<h1><%= @checkuser %></h1>
+<h1><%= @user %>
+
+<% @photos.each do |photo| %>
   <h1><%= photo.caption %></h1>
+  <%=image_tag photo.picture %>
+
+<% end %>
+
+<%= simple_form_for Photo.new, url: upload_photos_path do |f|  %>
+  <%= f.input :caption %>
+  <%= f.input :picture %>
+  <%= f.submit "Upload" %>
+
 <% end %>
