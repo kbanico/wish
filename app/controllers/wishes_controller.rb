@@ -22,15 +22,18 @@ class WishesController < ApplicationController
   end
 
   def create
-    @wish = current_user.wishes.create(wish_params)
-    if @wish.valid?
+    @wish = current_user.wishes.new(wish_params)
+    if @wish.save
+      p @wish.errors.full_messages
       if @wish.url.nil?
         @wish.update_attributes(url: $req)
       end
+
       redirect_to wish_path(@wish)
     else
       render :new, status: :unprocessable_entity
     end
+    # render json: @wish
   end
 
   def show
@@ -57,6 +60,6 @@ class WishesController < ApplicationController
 
   private
     def wish_params
-      params.require(:wish).permit(:description)
+      params.require(:wish).permit(:description,:url)
     end
 end
