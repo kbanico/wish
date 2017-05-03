@@ -1,5 +1,14 @@
 <h1><%= @checkuser %></h1>
-<h1><%= @user %>
+<h1><%= @user.inspect %>
+
+<h1>Upload a photo</h1>
+<%= simple_form_for Photo.new, url: upload_photos_path do |f|  %>
+  <%= f.input :caption, placeholder: "Enter a Description for the photo" %>
+  <%= f.input :picture %>
+  <%= f.submit "Upload" %>
+
+<% end %>
+
 
 <% @photos.each do |photo| %>
   <h1><%= photo.caption %></h1>
@@ -7,9 +16,3 @@
 
 <% end %>
 
-<%= simple_form_for Photo.new, url: upload_photos_path do |f|  %>
-  <%= f.input :caption %>
-  <%= f.input :picture %>
-  <%= f.submit "Upload" %>
-
-<% end %>

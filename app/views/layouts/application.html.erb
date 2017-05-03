@@ -42,6 +42,14 @@
             <% end %>
           </li>
 
+          <% if current_user.admin %>
+            <li class="nav-item">
+              <%= link_to upload_photos_path, class: "nav-link" do %>
+                Upload Photo <i class="fa fa-file-image-o" aria-hidden="true"></i>
+              <% end %>
+            </li>
+          <% end %>
+
           <li class="nav-item">
             <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
@@ -73,13 +81,21 @@
 
           <% if user_signed_in? %>
 
-          <li class="nav-item">
+          <li class="nav-item navbar-side-item">
 
             <%= link_to user_path(current_user), class: "nav-link" do %>
               My Profile <i class="fa fa-user-circle-o" aria-hidden="true"></i>
             <% end %>
 
           </li>
+
+          <% if current_user.admin %>
+            <li class="nav-item navbar-side-item">
+              <%= link_to upload_photos_path, class: "nav-link" do %>
+                Upload Photo <i class="fa fa-file-image-o" aria-hidden="true"></i>
+              <% end %>
+            </li>
+          <% end %>
 
           <li class="nav-item navbar-side-item">
             <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
