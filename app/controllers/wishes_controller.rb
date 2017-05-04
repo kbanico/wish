@@ -5,7 +5,6 @@ class WishesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    #@wishes = Wish.all.order("created_at DESC")
     @wishes = Wish.all.order("created_at DESC").paginate(:page => params[:page], per_page: 4)
     @donation = Donation.new
   end
@@ -14,10 +13,6 @@ class WishesController < ApplicationController
   def new
     #unsplash background on form
     # res = Net::HTTP.get_response(URI('https://source.unsplash.com/random'))
-    # $req = res['location']
-    # @req = $req
-
-    res = Net::HTTP.get_response(URI('https://source.unsplash.com/random'))
     # $req = res['location']
     # @req = $req
 
@@ -51,15 +46,6 @@ class WishesController < ApplicationController
 
     #comment
     @comment = Comment.new
-
-
-    # unsplash
-    # res = Net::HTTP.get_response(URI('https://source.unsplash.com/random'))
-    # @req = res['location']
-
-    # if @wish.url.nil?
-    #   @wish.update_attributes(url: @req)
-    # end
 
 
 
