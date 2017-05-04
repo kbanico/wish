@@ -21,6 +21,7 @@ class WishesController < ApplicationController
     # $req = res['location']
     # @req = $req
 
+    #gets the last picture in the uploaded database
     @req = Photo.last.picture
     @wish = Wish.new
     @photos = Photo.all
@@ -36,6 +37,7 @@ class WishesController < ApplicationController
 
       redirect_to wish_path(@wish)
     else
+      @photos = Photo.all
       render :new, status: :unprocessable_entity
     end
     # render json: @wish
