@@ -24,13 +24,9 @@ class WishesController < ApplicationController
   end
 
   def create
+
     @wish = current_user.wishes.new(wish_params)
     if @wish.save
-      p @wish.errors.full_messages
-      if @wish.url.nil?
-        @wish.update_attributes(url: $req)
-      end
-
       redirect_to wish_path(@wish)
     else
       @photos = Photo.all
