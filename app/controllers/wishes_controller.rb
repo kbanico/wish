@@ -17,7 +17,8 @@ class WishesController < ApplicationController
     # @req = $req
 
     #gets the last picture in the uploaded database
-    @req = Photo.last.picture
+    #@req = Photo.last.picture
+    @req = view_context.image_path 'default.jpg'
     @wish = Wish.new
     @photos = Photo.all
   end

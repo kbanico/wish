@@ -17,7 +17,7 @@
             <div class="col-6">
               <h1><%= photo.caption %></h1>
               <br>
-              <div id= "picture-<%=photo.id%>"><%=image_tag photo.picture %></div>
+              <div id= "picture-<%=photo.id%>"><%=image_tag photo.picture, class: "img-fluid" %></div>
             </div>
           <% end %>
         </div>
