@@ -2,7 +2,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -11,11 +11,16 @@
         <h4 class="modal-title" id="myModalLabel">Choose A Photo</h4>
       </div>
       <div class="modal-body">
-        <% @photos.each do |photo| %>
-          <h1><%= photo.caption %></h1>
-          <div id= "picture-<%=photo.id%>"><%=image_tag photo.picture %></div>
 
-        <% end %>
+        <div class="row">
+          <% @photos.each do |photo| %>
+            <div class="col-6">
+              <h1><%= photo.caption %></h1>
+              <br>
+              <div id= "picture-<%=photo.id%>"><%=image_tag photo.picture %></div>
+            </div>
+          <% end %>
+        </div>
 
       </div>
       <div class="modal-footer">

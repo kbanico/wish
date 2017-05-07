@@ -475,7 +475,14 @@ h1,h2,h3,h4,h5,h6, .navbar{
   color: #f3f4f6;
   text-shadow: 1px 3px black;
 
+  }
 }
 
+@media (min-width: 992px){
+  .modal-lg{
+    width: 900px;
+    height: 900px; /* control height here */
+  }
 }
+
 
