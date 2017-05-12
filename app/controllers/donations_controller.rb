@@ -32,8 +32,30 @@ class DonationsController < ApplicationController
       # redirect_to wish_path(@wish)
       #redirect_to :back
     else
+      #check time left before giving more coins
+      #last donation time in mins
+      last_donation_time = current_user.donations.last.created_at.strftime("%M").to_i
+
+      #current time in minutes
+      time_now = Time.now.strftime("%M").to_i
+
+      wait_time = 15 # waiting time for a new wish
+      diff = (last_donation_time - time_now).abs
+
+      time_left = (wait_time - diff).abs
+
+
+
+
+
+      puts "#{time_left} time left #{wait_time} is wait time #{time_left < wait_time} is time left < wait time"
       # maybe redirect them to a page to request for more coins
-      flash[:alert] = "Sorry you don't have enough coins"
+      if diff < wait_time
+        flash[:alert] = "Sorry you don't have enough coins try again in #{time_left} minutes"
+      else
+        flash[:notice] = "Thank you for waiting now you have more coins"
+        current_user.update_attributes(coins: 100)
+      end
       redirect_to :back
     end
   end
