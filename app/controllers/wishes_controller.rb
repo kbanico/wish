@@ -12,13 +12,13 @@ class WishesController < ApplicationController
 
   def new
     #unsplash background on form
-    # res = Net::HTTP.get_response(URI('https://source.unsplash.com/random'))
-    # $req = res['location']
-    # @req = $req
+    res = Net::HTTP.get_response(URI('https://source.unsplash.com/random'))
+    $req = res['location']
+    @req = $req
 
     #gets the last picture in the uploaded database
     #@req = Photo.last.picture
-    @req = view_context.image_path 'default.jpg'
+    #@req = view_context.image_path 'default.jpg'
     @wish = Wish.new
     @photos = Photo.all
   end
