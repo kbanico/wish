@@ -1,18 +1,25 @@
-<h1><%= @checkuser %></h1>
-<h1><%= @user.inspect %>
+<!-- <h1><%= @checkuser %></h1>
+<h1><%= @user.inspect %> -->
+<div class="booyah-box">
 
-<h1>Upload a photo</h1>
-<%= simple_form_for Photo.new, url: upload_photos_path do |f|  %>
-  <%= f.input :caption, placeholder: "Enter a Description for the photo" %>
-  <%= f.input :picture %>
-  <%= f.submit "Upload" %>
+  <div class="col-10 offset-1">
+  <h1 class="text-center">Upload a photo</h1>
+  <%= simple_form_for Photo.new, url: upload_photos_path do |f|  %>
+    <%= f.input :caption, placeholder: "Name of your photo" %>
+    <%= f.input :picture %>
+    <%= f.submit "Upload", class: "btn-green" %>
 
-<% end %>
+  <% end %>
+  </div>
+</div>
+<div class="row booyah-box">
 
-
-<% @photos.each do |photo| %>
-  <h1><%= photo.caption %></h1>
-  <%=image_tag photo.picture %>
-
-<% end %>
+  <% @photos.each do |photo| %>
+    <div class="col-sm-6">
+    <br>
+      <h3><%= photo.caption %></h3>
+      <%=image_tag photo.picture, class: "img-fluid" %>
+    </div>
+  <% end %>
+</div>
 

@@ -1,12 +1,18 @@
 class UploadPhotosController < ApplicationController
+  before_action :authenticate_user!
 
   def index
-    @photos = Photo.all
-    @user = current_user
-    if current_user && current_user.admin == true
-      @checkuser = "USER IS ADMIN"
+    if current_user.admin
+      @photos = Photo.all
+      @user = current_user
+      if current_user && current_user.admin == true
+        @checkuser = "USER IS ADMIN"
+      else
+        @checkuser = "USER IS NOT ADMIN"
+      end
     else
-      @checkuser = "USER IS NOT ADMIN"
+      flash[:notice] = "Sorry you do not have permission to do that"
+      redirect_to root_path
     end
   end
 
@@ -20,14 +26,14 @@ class UploadPhotosController < ApplicationController
     if current_user && current_user.admin == true
       @photo = current_user.photos.create(photo_params)
       if @photo.errors.any?
-        flash[:alert] = "THERE WAS AN ERROR"
+        flash[:alert] = "The following errors prevented the upload #{@photo.errors.full_messages}"
         redirect_to root_path
       else
-        flash[:alert] = "Everything ok"
+        flash[:notice] = "Upload success"
         redirect_to :back
       end
     else
-      flash[:alert] = "SORRY YOUR NOT ADMIN"
+      flash[:alert] = "Sorry you do not have permission to do that"
       redirect_to root_path
     end
   end
