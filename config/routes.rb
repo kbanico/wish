@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :upload_photos
 
+  get "/addcoins" => "static_pages#add_coins"
+
 end

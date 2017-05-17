@@ -20,14 +20,14 @@
 
 $(function(){
     $(window).scroll(function(e){
-      var $el = $('.fixedElement');
+      var $el = $('.user-coins');
       var isPositionFixed = ($el.css('position') == 'fixed');
       if ($(this).scrollTop() > 200 && !isPositionFixed){
-        $('.fixedElement').css({'position': 'fixed', 'top': '0px', "color": "#ff0000"});
+        $('.user-coins').css({'position': 'fixed', 'top': '0px', "color": "#ff0000"});
       }
       if ($(this).scrollTop() < 200 && isPositionFixed)
       {
-        $('.fixedElement').css({'position': 'static', 'top': '0px', "color": "#ffffff"});
+        $('.user-coins').css({'position': 'static', 'top': '0px', "color": "#ffffff"});
       }
     });
 

@@ -9,13 +9,20 @@
 
 html{
   height: 100%;
+
 }
 
 body{
   /*background-color: #0c0f09;*/
   background-image: image_url("pink.png");
   height: 100%;
+  position: relative;
 }
+
+.add-coins-alert{
+  word-wrap: break-word;
+}
+
 
 .clear{
   clear:both;
@@ -45,6 +52,7 @@ h1,h2,h3,h4,h5,h6, .navbar{
 }
 
 .hero{
+
   background: image_url('hero2.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -52,6 +60,7 @@ h1,h2,h3,h4,h5,h6, .navbar{
   background-size: cover;
   height: 370px;
   box-shadow: 0px 3px 8px #2a2a2a;
+
 
 }
 
@@ -242,6 +251,7 @@ h1,h2,h3,h4,h5,h6, .navbar{
     text-transform: uppercase;
 
 }
+
 
 .btn-remove{
   padding: 0;
@@ -451,6 +461,12 @@ h1,h2,h3,h4,h5,h6, .navbar{
 
 .underlined {
   text-decoration: underline dotted #43D1AF;;
+}
+
+.user-coins{
+  position: absolute;
+  right: 0;
+  background:rgba(0,0,0,0.5)
 }
 
 

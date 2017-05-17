@@ -1,0 +1,20 @@
+<div class="float-right white"><%= render "/layouts/coins_ui" %></div>
+<div class="booyah-box text-center">
+<br>
+  <h2 class="add-coins-alert"><%= @alert %></h2>
+  <img src="" class="img-fluid"> <br>
+  <%= link_to "Home", root_path, class: "goHome btn btn-block btn-green col-6 offset-3" %>
+</div>
+
+<script type="text/javascript">
+if(<%= !current_user.last_donation_within_threshold? %> && <%= current_user.coins > 0 %>)
+{
+
+  $("img").attr("src","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhsEEccwMLBwvUGh0-Q6My9U5g5KcwdH5AHUi9t4unD0v3TIAE")
+}else
+{
+  $("img").attr("src","https://c1.staticflickr.com/6/5138/5456757507_ee61bef113_b.jpg")
+}
+
+
+</script>

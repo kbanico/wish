@@ -1,3 +1,10 @@
 <% if user_signed_in? %>
-  <span id="user-coins-<%=current_user.id%>"><%= current_user.coins %> </span> <i class="fa fa-diamond" aria-hidden="true"></i>
+  <div class="user-coins">
+    <span id="user-coins-<%=current_user.id%>"><%= current_user.coins %> </span> <i class="fa fa-diamond" aria-hidden="true"></i>
+    <% if current_user.coins == 0 %>
+      <%= link_to "Claim Diamonds", addcoins_path, class: "btn btn-sm btn-green claim-diamond" %>
+    <% end %>
+  </div>
+
+
 <% end %>
