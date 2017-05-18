@@ -9,14 +9,15 @@ class StaticPagesController < ApplicationController
 
   def add_coins
     if current_user.has_enough_coins?
-      redirect_to root_path
-      flash[:notice] = "You have enough coins come back when you don't have any"
+      @alert = "You have enough diamonds to use"
+      #redirect_to root_path
+      #flash[:notice] = "You have enough coins come back when you don't have any"
     else
       if !current_user.last_donation_within_threshold?
         current_user.add_coins!(1 + rand(100))
         @alert =  "Thank you #{current_user.username} for waiting you now have #{current_user.coins} diamonds"
       else
-        @alert = "Hi #{current_user.username} please wait #{current_user.time_left_in_minute} minutes"
+        @alert = "Hi #{current_user.username} come back later or please wait "
       end
     end
 

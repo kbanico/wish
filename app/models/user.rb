@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :photos
 
-  THRESHOLD_TIME = 15
+  THRESHOLD_TIME = 1
 
   def has_enough_coins?
     coins > 0

@@ -1,12 +1,15 @@
 <div class="float-right white"><%= render "/layouts/coins_ui" %></div>
 <div class="booyah-box text-center">
 <br>
-  <h2 class="add-coins-alert"><%= @alert %></h2>
+  <h2 class="add-coins-alert"><%= @alert %> <span id="timer"></span></h2>
+  <h3 id="user-before-redirect">Thank you for waiting we are processing your diamonds</h3>
+
   <img src="" class="img-fluid"> <br>
   <%= link_to "Home", root_path, class: "goHome btn btn-block btn-green col-6 offset-3" %>
 </div>
 
 <script type="text/javascript">
+$("#user-before-redirect").hide()
 if(<%= !current_user.last_donation_within_threshold? %> && <%= current_user.coins > 0 %>)
 {
 
@@ -15,6 +18,47 @@ if(<%= !current_user.last_donation_within_threshold? %> && <%= current_user.coin
 {
   $("img").attr("src","https://c1.staticflickr.com/6/5138/5456757507_ee61bef113_b.jpg")
 }
+
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    myInterval = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+
+        minutes > 1 ? display.text(minutes + ":" + seconds + " minutes") : display.text(minutes + ":" + seconds + " minute")
+
+        if (minutes == 0 && seconds > 1){
+          display.text(minutes + ":" + seconds + " seconds")
+        }
+
+
+        timer--
+        if(timer <= 0 && <%= current_user.coins %> == 0){
+          clearInterval(myInterval)
+           $(".add-coins-alert").hide();
+           $("#user-before-redirect").show()
+           location.reload()
+        }else if(timer <=0){
+          $("#timer").hide()
+        }
+
+    }, 1000);
+
+
+}
+
+
+
+jQuery(function ($) {
+    var fiveMinutes = 60 * <%= current_user.time_left_in_minute %>,
+        display = $('#timer');
+    startTimer(fiveMinutes, display);
+});
 
 
 </script>
