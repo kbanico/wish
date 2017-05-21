@@ -1,44 +1,28 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  # unsplash
-
+  before_action :find_wish
 
   def new
-
-    #unsplash background on form
-    res = Net::HTTP.get_response(URI('https://source.unsplash.com/random'))
-    $req = res['location']
-    @req = $req
-
-    @wish = Wish.find(params[:wish_id])
-    @comment = Comment.new
+    @random_image_url = RandomImageService.random_image_url
   end
 
   def create
-    @wish = Wish.find(params[:wish_id])
-    @wish.comments.create(comment_params.merge(user: current_user))
-
-    @comment = @wish.comments.last
-    if @comment.save
-      @wish.comments.last.update_attributes(url: $req)
-      @wish.save
-      redirect_to  wish_path(@wish)
+    comment = @wish.comments.new(comment_params.merge(user: current_user))
+    if comment.save
+      redirect_to wish_path(@wish)
     else
       flash[:error] = "Something went wrong"
       render :new
     end
-
-
-
-    #  # unsplash
-    # res = Net::HTTP.get_response(URI('https://source.unsplash.com/random'))
-    # @req = res['location']
-
-
   end
 
   private
+
   def comment_params
-    params.require(:comment).permit(:message)
+    params.require(:comment).permit(:message, :url)
+  end
+
+  def find_wish
+    @wish = Wish.find(params[:wish_id])
   end
 end

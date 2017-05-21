@@ -55,7 +55,7 @@ function startTimer(duration, display) {
 
 
 jQuery(function ($) {
-    var fiveMinutes = 60 * <%= current_user.time_left_in_minute %>,
+    var fiveMinutes = <%= current_user.time_left_in_second %>,
         display = $('#timer');
     startTimer(fiveMinutes, display);
 });

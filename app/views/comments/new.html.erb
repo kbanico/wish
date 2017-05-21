@@ -1,13 +1,14 @@
 <br>
-<div class="make-comment col-12 col-sm-10 offset-sm-1 text-center animated bounce" style="background-image: url('<%=@req%>'); -webkit-background-size: cover;
+<div class="make-comment col-12 col-sm-10 offset-sm-1 text-center animated bounce" style="background-image: url('<%=@random_image_url%>'); -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;">
   <br>
   <h2 class="my-font2 text-center">Leave Reply</h2>
   <br>
-  <%= simple_form_for @comment, url: wish_comments_path(@wish) do |f| %>
+  <%= simple_form_for Comment.new, url: wish_comments_path(@wish) do |f| %>
     <%= f.input :message, label: false, placeholder: "Wish them well" %>
+    <%= f.hidden_field :url, value: @random_image_url %>
     <%= f.submit "Reply", class: "btn btn-primary hideMe clickMe", input_html: {id: "commentsubmit"}%>
     <%= button_tag(type:"submit", class: "btn clickMe no hover wish-button") do %>
        <i class="fa fa-paper-plane" aria-hidden="true"></i> Post
@@ -26,8 +27,6 @@
           $(this).val("")
         }
     });
-
-    console.log("<%= @req %>")
   })
 
 </script>
