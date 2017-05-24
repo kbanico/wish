@@ -3,5 +3,12 @@
   Congrats! <b>A comment has been added on wish-app</b>
 </p>
 
+<p>
+  <%= @comment_user %> said "<i><%= @comment_message %></i>"
+
+  <br>
+  Check it out <%= link_to "here", wish_url(@wish) %>
+</p>
+
 Thank you, <br />
 Ken
