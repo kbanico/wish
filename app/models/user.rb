@@ -3,10 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :wishes
-  has_many :donations
-  has_many :comments
-  has_many :photos
+  has_many :wishes, dependent: :destroy
+  has_many :donations, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :photos, dependent: :destroy
 
   THRESHOLD_TIME = 15 * 60
 

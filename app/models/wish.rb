@@ -1,7 +1,7 @@
 class Wish < ApplicationRecord
   belongs_to :user
-  has_many :donations
-  has_many :comments
+  has_many :donations, dependent: :destroy
+  has_many :comments, dependent: :destroy
   validates :description, presence: true, length:{minimum:3, maximum: 130}
 
   def add_donation(amount, user)
