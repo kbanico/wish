@@ -4,7 +4,8 @@
       <h1 class="my-font3 underlined"><%= @user.username %></h1>
       <h3>Member since: <%= @user.created_at.strftime("%B %d %Y") %></h3>
       <h4>Total wishes: <%= @user.wishes.count%></h4>
-      <h4>Total replies: <%= @user.comments.count%></h4>
+      <h4>Total replies: <%= @user.comments.count%></h4><br>
+      <h5><%= link_to "Change Password", edit_user_registration_path(current_user) %></h5>
     </div>
   </div>
 
