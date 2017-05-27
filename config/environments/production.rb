@@ -1,5 +1,8 @@
 Rails.application.configure do
 
+  config.serve_static_files = false
+  config.assets.compile = false
+
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
