@@ -1,6 +1,7 @@
 Rails.application.configure do
 
-  config.serve_static_files = false
+  #config.serve_static_files = false
+  config.public_file_server.enabled = false
   config.assets.compile = false
 
   config.action_mailer.delivery_method = :smtp
