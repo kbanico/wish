@@ -15,6 +15,13 @@
     <% end %>
     <br> <br>
   </div>
+   <ul class="bubbles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
 </div>
 
   <h1 class=" booyah-box text-center wish-description">Latest Wishes <i class="fa fa-moon-o" aria-hidden="true"></i></h1>
@@ -26,6 +33,19 @@
     <% end %>
       </div>
     <% end %>
+
 </div>
 
 <h1 class=" booyah-box text-center wish-description wish-link"><span class="btn btn-lg btn-green"><%= link_to "View All", wishes_path, style: "color:white !important;" %></span></h1>
+
+
+<script type="text/javascript">
+var colors = ['#660066', '#03dfd8', '#26dd3f',"#b40819","#9dbbd3","#967a50"];
+
+
+  var bubbles = $(".bubbles li");
+  for(var i = 0; i < bubbles.length; i++){
+    var random_color = colors[Math.floor(Math.random() * colors.length)];
+    $(bubbles[i]).css("background-color",random_color)
+  }
+</script>
